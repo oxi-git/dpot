@@ -518,5 +518,6 @@ filebeat:
     - "/var/lib/docker/containers:/var/lib/docker/containers:ro"
     - "/var/run/docker.sock:/var/run/docker.sock:ro"
   environment:
-    - "true"
+    D-POT_COLLECTOR: $COLLECTOR_IP:5044
+
   image: docker.elastic.co/beats/filebeat

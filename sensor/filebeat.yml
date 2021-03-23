@@ -165,6 +165,6 @@ filebeat.inputs:
 
 output.logstash:
   enabled: true
-  hosts: ["change_with_collector_ip:5044"]
+  hosts: '${D-POT_COLLECTOR}'
   ssl.enabled: false
   ssl.verification_mode: none
