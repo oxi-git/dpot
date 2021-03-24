@@ -7,7 +7,7 @@ filebeat.inputs:
     type: Syslog
     t-pot_ip_ext: ${MY_EXTIP}
     t-pot_ip_int: ${MY_INTIP}
-    t-pot_hostname: ${MY_HOSTNAME}
+    # t-pot_hostname: ${MY_HOSTNAME}
 - type: log
   enabled: true
   paths:
@@ -16,7 +16,7 @@ filebeat.inputs:
     type: Suricata
     t-pot_ip_ext: ${MY_EXTIP}
     t-pot_ip_int: ${MY_INTIP}
-    t-pot_hostname: ${MY_HOSTNAME}
+    # t-pot_hostname: ${MY_HOSTNAME}
   json.keys_under_root: true
 - type: log
   enabled: true
@@ -26,7 +26,7 @@ filebeat.inputs:
     type: P0f
     t-pot_ip_ext: ${MY_EXTIP}
     t-pot_ip_int: ${MY_INTIP}
-    t-pot_hostname: ${MY_HOSTNAME}
+    # t-pot_hostname: ${MY_HOSTNAME}
   json.keys_under_root: true
 - type: log
   enabled: true
@@ -36,7 +36,7 @@ filebeat.inputs:
     type: Ciscoasa
     t-pot_ip_ext: ${MY_EXTIP}
     t-pot_ip_int: ${MY_INTIP}
-    t-pot_hostname: ${MY_HOSTNAME}
+    # t-pot_hostname: ${MY_HOSTNAME}
     dest_ip: ${MY_EXTIP}
 - type: log
   enabled: true
@@ -46,7 +46,7 @@ filebeat.inputs:
     type: Glastopf
     t-pot_ip_ext: ${MY_EXTIP}
     t-pot_ip_int: ${MY_INTIP}
-    t-pot_hostname: ${MY_HOSTNAME}
+    # t-pot_hostname: ${MY_HOSTNAME}
 - type: log
   enabled: true
   paths:
@@ -55,7 +55,7 @@ filebeat.inputs:
     type: Heralding
     t-pot_ip_ext: ${MY_EXTIP}
     t-pot_ip_int: ${MY_INTIP}
-    t-pot_hostname: ${MY_HOSTNAME}
+    # t-pot_hostname: ${MY_HOSTNAME}
 - type: log
   enabled: true
   paths:
@@ -64,7 +64,7 @@ filebeat.inputs:
     type: Mailoney
     t-pot_ip_ext: ${MY_EXTIP}
     t-pot_ip_int: ${MY_INTIP}
-    t-pot_hostname: ${MY_HOSTNAME}
+    # t-pot_hostname: ${MY_HOSTNAME}
 - type: log
   enabled: true
   paths:
@@ -73,7 +73,7 @@ filebeat.inputs:
     type: Rdpy
     t-pot_ip_ext: ${MY_EXTIP}
     t-pot_ip_int: ${MY_INTIP}
-    t-pot_hostname: ${MY_HOSTNAME}
+    # t-pot_hostname: ${MY_HOSTNAME}
 - type: log
   enabled: true
   paths:
@@ -82,7 +82,7 @@ filebeat.inputs:
     type: ConPot
     t-pot_ip_ext: ${MY_EXTIP}
     t-pot_ip_int: ${MY_INTIP}
-    t-pot_hostname: ${MY_HOSTNAME}
+    # t-pot_hostname: ${MY_HOSTNAME}
   json.keys_under_root: true
 - type: log
   enabled: true
@@ -92,7 +92,7 @@ filebeat.inputs:
     type: Cowrie
     t-pot_ip_ext: ${MY_EXTIP}
     t-pot_ip_int: ${MY_INTIP}
-    t-pot_hostname: ${MY_HOSTNAME}
+    # t-pot_hostname: ${MY_HOSTNAME}
   json.keys_under_root: true
 - type: log
   enabled: true
@@ -102,7 +102,7 @@ filebeat.inputs:
     type: Dionaea
     t-pot_ip_ext: ${MY_EXTIP}
     t-pot_ip_int: ${MY_INTIP}
-    t-pot_hostname: ${MY_HOSTNAME}
+    # t-pot_hostname: ${MY_HOSTNAME}
   json.keys_under_root: true
 - type: log
   enabled: true
@@ -112,7 +112,7 @@ filebeat.inputs:
     type: ElasticPot
     t-pot_ip_ext: ${MY_EXTIP}
     t-pot_ip_int: ${MY_INTIP}
-    t-pot_hostname: ${MY_HOSTNAME}
+    # t-pot_hostname: ${MY_HOSTNAME}
   json.keys_under_root: true
 - type: log
   enabled: true
@@ -122,7 +122,7 @@ filebeat.inputs:
     type: Glutton
     t-pot_ip_ext: ${MY_EXTIP}
     t-pot_ip_int: ${MY_INTIP}
-    t-pot_hostname: ${MY_HOSTNAME}
+    # t-pot_hostname: ${MY_HOSTNAME}
   json.keys_under_root: true
 - type: log
   enabled: true
@@ -132,7 +132,7 @@ filebeat.inputs:
     type: Honeytrap
     t-pot_ip_ext: ${MY_EXTIP}
     t-pot_ip_int: ${MY_INTIP}
-    t-pot_hostname: ${MY_HOSTNAME}
+    # t-pot_hostname: ${MY_HOSTNAME}
   json.keys_under_root: true
 - type: log
   enabled: true
@@ -142,7 +142,7 @@ filebeat.inputs:
     type: Medpot
     t-pot_ip_ext: ${MY_EXTIP}
     t-pot_ip_int: ${MY_INTIP}
-    t-pot_hostname: ${MY_HOSTNAME}
+    # t-pot_hostname: ${MY_HOSTNAME}
     dest_ip: ${MY_EXTIP}
   json.keys_under_root: true
 - type: log
@@ -160,7 +160,7 @@ filebeat.inputs:
     type: Tanner
     t-pot_ip_ext: ${MY_EXTIP}
     t-pot_ip_int: ${MY_INTIP}
-    t-pot_hostname: ${MY_HOSTNAME}
+    # t-pot_hostname: ${MY_HOSTNAME}
   json.keys_under_root: true
 
 output.logstash:
