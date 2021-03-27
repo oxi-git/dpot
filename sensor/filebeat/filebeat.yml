@@ -5,166 +5,166 @@ filebeat.inputs:
     - /var/log/syslog
   fields:
     type: Syslog
-    t-pot_ip_ext: ${MY_EXTIP}
-    t-pot_ip_int: ${MY_INTIP}
+    # t-pot_ip_ext: ${MY_EXTIP}
+    # t-pot_ip_int: ${MY_INTIP}
     # t-pot_hostname: ${MY_HOSTNAME}
 - type: log
   enabled: true
   paths:
-    - /data/suricata/log/eve.json
+    - /logs/suricata/log/eve.json
   fields:
     type: Suricata
-    t-pot_ip_ext: ${MY_EXTIP}
-    t-pot_ip_int: ${MY_INTIP}
+    # t-pot_ip_ext: ${MY_EXTIP}
+    # t-pot_ip_int: ${MY_INTIP}
     # t-pot_hostname: ${MY_HOSTNAME}
   json.keys_under_root: true
 - type: log
   enabled: true
   paths:
-    - /data/p0f/log/p0f.json
+    - /logs/p0f/log/p0f.json
   fields:
     type: P0f
-    t-pot_ip_ext: ${MY_EXTIP}
-    t-pot_ip_int: ${MY_INTIP}
+    # t-pot_ip_ext: ${MY_EXTIP}
+    # t-pot_ip_int: ${MY_INTIP}
     # t-pot_hostname: ${MY_HOSTNAME}
   json.keys_under_root: true
 - type: log
   enabled: true
   paths:
-    - /data/ciscoasa/log/ciscoasa.log
+    - /logs/ciscoasa/log/ciscoasa.log
   fields:
     type: Ciscoasa
-    t-pot_ip_ext: ${MY_EXTIP}
-    t-pot_ip_int: ${MY_INTIP}
+    # t-pot_ip_ext: ${MY_EXTIP}
+    # t-pot_ip_int: ${MY_INTIP}
     # t-pot_hostname: ${MY_HOSTNAME}
-    dest_ip: ${MY_EXTIP}
+    # dest_ip: ${MY_EXTIP}
 - type: log
   enabled: true
   paths:
-    - /data/glastopf/log/glastopf.log
+    - /logs/glastopf/log/glastopf.log
   fields:
     type: Glastopf
-    t-pot_ip_ext: ${MY_EXTIP}
-    t-pot_ip_int: ${MY_INTIP}
+    # t-pot_ip_ext: ${MY_EXTIP}
+    # t-pot_ip_int: ${MY_INTIP}
     # t-pot_hostname: ${MY_HOSTNAME}
 - type: log
   enabled: true
   paths:
-    - /data/heralding/log/auth.csv
+    - /logs/heralding/log/auth.csv
   fields:
     type: Heralding
-    t-pot_ip_ext: ${MY_EXTIP}
-    t-pot_ip_int: ${MY_INTIP}
+    # t-pot_ip_ext: ${MY_EXTIP}
+    # t-pot_ip_int: ${MY_INTIP}
     # t-pot_hostname: ${MY_HOSTNAME}
 - type: log
   enabled: true
   paths:
-    - /data/mailoney/log/commands.log
+    - /logs/mailoney/log/commands.log
   fields:
     type: Mailoney
-    t-pot_ip_ext: ${MY_EXTIP}
-    t-pot_ip_int: ${MY_INTIP}
+    # t-pot_ip_ext: ${MY_EXTIP}
+    # t-pot_ip_int: ${MY_INTIP}
     # t-pot_hostname: ${MY_HOSTNAME}
 - type: log
   enabled: true
   paths:
-    - /data/rdpy/log/rdpy.log
+    - /logs/rdpy/log/rdpy.log
   fields:
     type: Rdpy
-    t-pot_ip_ext: ${MY_EXTIP}
-    t-pot_ip_int: ${MY_INTIP}
+    # t-pot_ip_ext: ${MY_EXTIP}
+    # t-pot_ip_int: ${MY_INTIP}
     # t-pot_hostname: ${MY_HOSTNAME}
 - type: log
   enabled: true
   paths:
-    - /data/conpot/log/*.json
+    - /logs/conpot/log/*.json
   fields:
     type: ConPot
-    t-pot_ip_ext: ${MY_EXTIP}
-    t-pot_ip_int: ${MY_INTIP}
+    # t-pot_ip_ext: ${MY_EXTIP}
+    # t-pot_ip_int: ${MY_INTIP}
     # t-pot_hostname: ${MY_HOSTNAME}
   json.keys_under_root: true
 - type: log
   enabled: true
   paths:
-    - /data/cowrie/log/cowrie.json
+    - /logs/cowrie/log/cowrie.json
   fields:
     type: Cowrie
-    t-pot_ip_ext: ${MY_EXTIP}
-    t-pot_ip_int: ${MY_INTIP}
+    # t-pot_ip_ext: ${MY_EXTIP}
+    # t-pot_ip_int: ${MY_INTIP}
     # t-pot_hostname: ${MY_HOSTNAME}
   json.keys_under_root: true
 - type: log
   enabled: true
   paths:
-    - /data/dionaea/log/dionaea.json
+    - /logs/dionaea/log/dionaea.json
   fields:
     type: Dionaea
-    t-pot_ip_ext: ${MY_EXTIP}
-    t-pot_ip_int: ${MY_INTIP}
+    # t-pot_ip_ext: ${MY_EXTIP}
+    # t-pot_ip_int: ${MY_INTIP}
     # t-pot_hostname: ${MY_HOSTNAME}
   json.keys_under_root: true
 - type: log
   enabled: true
   paths:
-    - /data/elasticpot/log/elasticpot.log
+    - /logs/elasticpot/log/elasticpot.log
   fields:
     type: ElasticPot
-    t-pot_ip_ext: ${MY_EXTIP}
-    t-pot_ip_int: ${MY_INTIP}
+    # t-pot_ip_ext: ${MY_EXTIP}
+    # t-pot_ip_int: ${MY_INTIP}
     # t-pot_hostname: ${MY_HOSTNAME}
   json.keys_under_root: true
 - type: log
   enabled: true
   paths:
-    - /data/glutton/log/glutton.log
+    - /logs/glutton/log/glutton.log
   fields:
     type: Glutton
-    t-pot_ip_ext: ${MY_EXTIP}
-    t-pot_ip_int: ${MY_INTIP}
+    # t-pot_ip_ext: ${MY_EXTIP}
+    # t-pot_ip_int: ${MY_INTIP}
     # t-pot_hostname: ${MY_HOSTNAME}
   json.keys_under_root: true
 - type: log
   enabled: true
   paths:
-    - /data/honeytrap/log/attackers.json
+    - /logs/honeytrap/log/attackers.json
   fields:
     type: Honeytrap
-    t-pot_ip_ext: ${MY_EXTIP}
-    t-pot_ip_int: ${MY_INTIP}
+    # t-pot_ip_ext: ${MY_EXTIP}
+    # t-pot_ip_int: ${MY_INTIP}
     # t-pot_hostname: ${MY_HOSTNAME}
   json.keys_under_root: true
 - type: log
   enabled: true
   paths:
-    - /data/medpot/log/medpot.log
+    - /logs/medpot/log/medpot.log
   fields:
     type: Medpot
-    t-pot_ip_ext: ${MY_EXTIP}
-    t-pot_ip_int: ${MY_INTIP}
+    # t-pot_ip_ext: ${MY_EXTIP}
+    # t-pot_ip_int: ${MY_INTIP}
     # t-pot_hostname: ${MY_HOSTNAME}
-    dest_ip: ${MY_EXTIP}
+    # # dest_ip: ${MY_EXTIP}
   json.keys_under_root: true
 - type: log
   enabled: true
   paths:
-    - /data/nginx/log/access.log
+    - /logs/nginx/log/access.log
   fields:
     type: NGINX
   json.keys_under_root: true
 - type: log
   enabled: true
   paths:
-    - /data/tanner/log/tanner_report.json
+    - /logs/tanner/log/tanner_report.json
   fields:
     type: Tanner
-    t-pot_ip_ext: ${MY_EXTIP}
-    t-pot_ip_int: ${MY_INTIP}
+    # t-pot_ip_ext: ${MY_EXTIP}
+    # t-pot_ip_int: ${MY_INTIP}
     # t-pot_hostname: ${MY_HOSTNAME}
   json.keys_under_root: true
 
 output.logstash:
   enabled: true
-  hosts: '${D-POT_COLLECTOR}'
+  hosts: ${D-POT_COLLECTOR}
   ssl.enabled: false
   ssl.verification_mode: none

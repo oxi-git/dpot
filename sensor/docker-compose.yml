@@ -158,22 +158,17 @@ services:
 
 # Cowrie service
   cowrie:
+    build: ./honeypots/cowrie/
     container_name: cowrie
     restart: always
-    tmpfs:
-      - /tmp/cowrie:uid=2000,gid=2000
-      - /tmp/cowrie/data:uid=2000,gid=2000
     networks:
-      - cowrie_local
+     - cowrie_local
     ports:
-      - "22:2222"
-    image: cowrie/cowrie
-    read_only: true
+     - "22:2222"
+     - "23:2223"
+    # read_only: true
     volumes:
-      - /data/cowrie/downloads:/home/cowrie/cowrie/dl
-      - /data/cowrie/keys:/home/cowrie/cowrie/etc
-      - /data/cowrie/log:/home/cowrie/cowrie/log
-      - /data/cowrie/log/tty:/home/cowrie/cowrie/log/tty
+     - ./logs/cowrie/log/:/cowrie/cowrie-git/var/log/cowrie/
 
   # # Dicompot service
   # # Get the Horos Client for testing: https://horosproject.org/
@@ -515,6 +510,7 @@ services:
         ELK_VERSION: $ELK_VERSION
     volumes:
       - "./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
+      - "./logs/:/logs/"
       - "/var/lib/docker/containers:/var/lib/docker/containers:ro"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
     environment:
