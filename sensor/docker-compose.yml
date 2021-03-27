@@ -22,6 +22,9 @@ networks:
   # rdpy_local:
   # tanner_local:
 
+volumes:
+  cowrie_logs:
+
 services:
   ##################
   #### Honeypots
@@ -168,7 +171,8 @@ services:
      - "23:2223"
     # read_only: true
     volumes:
-     - ./logs/cowrie/log/:/cowrie/cowrie-git/var/log/cowrie/
+     - cowrie_logs:/cowrie/cowrie-git/var/log/cowrie/
+    #  - ./logs/cowrie/log/:/cowrie/cowrie-git/var/log/cowrie/
 
   # # Dicompot service
   # # Get the Horos Client for testing: https://horosproject.org/
@@ -509,8 +513,8 @@ services:
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
+      - "cowrie_logs:/logs/cowrie/"
       - "./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
-      - "./logs/:/logs/"
       - "/var/lib/docker/containers:/var/lib/docker/containers:ro"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
     environment:
