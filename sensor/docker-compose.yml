@@ -518,4 +518,5 @@ services:
       - "/var/lib/docker/containers:/var/lib/docker/containers:ro"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
     environment:
+      SENSOR_NAME: $SENSOR_NAME
       D-POT_COLLECTOR: $COLLECTOR_IP:5044

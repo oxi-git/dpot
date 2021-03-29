@@ -4,163 +4,150 @@ filebeat.inputs:
   paths:
     - /var/log/syslog
   fields:
-    type: Syslog
-    # t-pot_ip_ext: ${MY_EXTIP}
-    # t-pot_ip_int: ${MY_INTIP}
-    # t-pot_hostname: ${MY_HOSTNAME}
+    type: syslog
+    service: syslog
+    sensor-name: ${SENSOR_NAME}
+
 - type: log
   enabled: true
   paths:
     - /logs/suricata/eve.json
   fields:
-    type: Suricata
-    # t-pot_ip_ext: ${MY_EXTIP}
-    # t-pot_ip_int: ${MY_INTIP}
-    # t-pot_hostname: ${MY_HOSTNAME}
+    type: suricata
+    service: suricata
+    sensor-name: ${SENSOR_NAME}
   json.keys_under_root: true
+
 - type: log
   enabled: true
   paths:
     - /logs/p0f/p0f.json
   fields:
-    type: P0f
-    # t-pot_ip_ext: ${MY_EXTIP}
-    # t-pot_ip_int: ${MY_INTIP}
-    # t-pot_hostname: ${MY_HOSTNAME}
+    type: p0f
+    service: p0f
+    sensor-name: ${SENSOR_NAME}
   json.keys_under_root: true
+
 - type: log
   enabled: true
   paths:
     - /logs/ciscoasa/ciscoasa.log
   fields:
-    type: Ciscoasa
-    # t-pot_ip_ext: ${MY_EXTIP}
-    # t-pot_ip_int: ${MY_INTIP}
-    # t-pot_hostname: ${MY_HOSTNAME}
-    # dest_ip: ${MY_EXTIP}
-- type: log
-  enabled: true
-  paths:
-    - /logs/glastopf/glastopf.log
-  fields:
-    type: Glastopf
-    # t-pot_ip_ext: ${MY_EXTIP}
-    # t-pot_ip_int: ${MY_INTIP}
-    # t-pot_hostname: ${MY_HOSTNAME}
+    type: ciscoasa
+    service: cisco
+    sensor-name: ${SENSOR_NAME}
+
+# - type: log
+#   enabled: true
+#   paths:
+#     - /logs/glastopf/glastopf.log
+#   fields:
+#     type: glastopf
+#     service: webapp
+#     sensor-name: ${SENSOR_NAME}
+
 - type: log
   enabled: true
   paths:
     - /logs/heralding/auth.csv
   fields:
-    type: Heralding
-    # t-pot_ip_ext: ${MY_EXTIP}
-    # t-pot_ip_int: ${MY_INTIP}
-    # t-pot_hostname: ${MY_HOSTNAME}
+    type: heralding
+    service: port-filler
+    sensor-name: ${SENSOR_NAME}
+
 - type: log
   enabled: true
   paths:
     - /logs/mailoney/commands.log
   fields:
-    type: Mailoney
-    # t-pot_ip_ext: ${MY_EXTIP}
-    # t-pot_ip_int: ${MY_INTIP}
-    # t-pot_hostname: ${MY_HOSTNAME}
+    type: mailoney
+    service: smtp
+    sensor-name: ${SENSOR_NAME}
+
 - type: log
   enabled: true
   paths:
     - /logs/rdpy/rdpy.log
   fields:
-    type: Rdpy
-    # t-pot_ip_ext: ${MY_EXTIP}
-    # t-pot_ip_int: ${MY_INTIP}
-    # t-pot_hostname: ${MY_HOSTNAME}
+    type: c
+    sensor-name: ${SENSOR_NAME}
+
 - type: log
   enabled: true
   paths:
     - /logs/conpot/*.json
   fields:
-    type: ConPot
-    # t-pot_ip_ext: ${MY_EXTIP}
-    # t-pot_ip_int: ${MY_INTIP}
-    # t-pot_hostname: ${MY_HOSTNAME}
+    type: conPot
+    sensor-name: ${SENSOR_NAME}
   json.keys_under_root: true
+
 - type: log
   enabled: true
   paths:
     - /logs/cowrie/cowrie.json
   fields:
-    type: Cowrie
-    # t-pot_ip_ext: ${MY_EXTIP}
-    # t-pot_ip_int: ${MY_INTIP}
-    # t-pot_hostname: ${MY_HOSTNAME}
+    type: cowrie
+    service: ssh
+    sensor-name: ${SENSOR_NAME}
   json.keys_under_root: true
+
 - type: log
   enabled: true
   paths:
     - /logs/dionaea/dionaea.json
   fields:
-    type: Dionaea
-    # t-pot_ip_ext: ${MY_EXTIP}
-    # t-pot_ip_int: ${MY_INTIP}
-    # t-pot_hostname: ${MY_HOSTNAME}
+    type: dionaea
+    sensor-name: ${SENSOR_NAME}
   json.keys_under_root: true
+
 - type: log
   enabled: true
   paths:
     - /logs/elasticpot/elasticpot.log
   fields:
-    type: ElasticPot
-    # t-pot_ip_ext: ${MY_EXTIP}
-    # t-pot_ip_int: ${MY_INTIP}
-    # t-pot_hostname: ${MY_HOSTNAME}
+    type: elasticPot
+    sensor-name: ${SENSOR_NAME}
   json.keys_under_root: true
+
 - type: log
   enabled: true
   paths:
     - /logs/glutton/glutton.log
   fields:
-    type: Glutton
-    # t-pot_ip_ext: ${MY_EXTIP}
-    # t-pot_ip_int: ${MY_INTIP}
-    # t-pot_hostname: ${MY_HOSTNAME}
+    type: glutton
+    sensor-name: ${SENSOR_NAME}
   json.keys_under_root: true
+
 - type: log
   enabled: true
   paths:
     - /logs/honeytrap/attackers.json
   fields:
-    type: Honeytrap
-    # t-pot_ip_ext: ${MY_EXTIP}
-    # t-pot_ip_int: ${MY_INTIP}
-    # t-pot_hostname: ${MY_HOSTNAME}
+    type: honeytrap
+    sensor-name: ${SENSOR_NAME}
   json.keys_under_root: true
 - type: log
   enabled: true
   paths:
     - /logs/medpot/medpot.log
   fields:
-    type: Medpot
-    # t-pot_ip_ext: ${MY_EXTIP}
-    # t-pot_ip_int: ${MY_INTIP}
-    # t-pot_hostname: ${MY_HOSTNAME}
-    # # dest_ip: ${MY_EXTIP}
+    type: medpot
+    sensor-name: ${SENSOR_NAME}
   json.keys_under_root: true
 - type: log
   enabled: true
   paths:
     - /logs/nginx/access.log
   fields:
-    type: NGINX
+    type: nginx
   json.keys_under_root: true
 - type: log
   enabled: true
   paths:
     - /logs/tanner/tanner_report.json
   fields:
-    type: Tanner
-    # t-pot_ip_ext: ${MY_EXTIP}
-    # t-pot_ip_int: ${MY_INTIP}
-    # t-pot_hostname: ${MY_HOSTNAME}
+    type: tanner
+    sensor-name: ${SENSOR_NAME}
   json.keys_under_root: true
 
 output.logstash:
