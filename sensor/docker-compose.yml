@@ -509,6 +509,7 @@ services:
         ELK_VERSION: $ELK_VERSION
     volumes:
       - "cowrie_logs:/logs/cowrie/"
+      - "mailoney_logs:/logs/mailoney/"
       - "./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
       - "/var/lib/docker/containers:/var/lib/docker/containers:ro"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
