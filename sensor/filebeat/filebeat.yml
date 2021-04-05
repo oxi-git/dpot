@@ -69,7 +69,8 @@ filebeat.inputs:
   paths:
     - /logs/rdpy/rdpy.log
   fields:
-    type: c
+    type: rpdy
+    service: rdp
     sensor-name: ${SENSOR_NAME}
 
 - type: log
@@ -77,7 +78,8 @@ filebeat.inputs:
   paths:
     - /logs/conpot/*.json
   fields:
-    type: conPot
+    type: conpot
+    service: scada
     sensor-name: ${SENSOR_NAME}
   json.keys_under_root: true
 
@@ -97,6 +99,7 @@ filebeat.inputs:
     - /logs/dionaea/dionaea.json
   fields:
     type: dionaea
+    service: dionea
     sensor-name: ${SENSOR_NAME}
   json.keys_under_root: true
 
@@ -105,7 +108,8 @@ filebeat.inputs:
   paths:
     - /logs/elasticpot/elasticpot.log
   fields:
-    type: elasticPot
+    type: elasticpot
+    service: elastic
     sensor-name: ${SENSOR_NAME}
   json.keys_under_root: true
 
@@ -115,6 +119,7 @@ filebeat.inputs:
     - /logs/glutton/glutton.log
   fields:
     type: glutton
+    service: glutton
     sensor-name: ${SENSOR_NAME}
   json.keys_under_root: true
 
@@ -124,29 +129,36 @@ filebeat.inputs:
     - /logs/honeytrap/attackers.json
   fields:
     type: honeytrap
+    service: honeytrap
     sensor-name: ${SENSOR_NAME}
   json.keys_under_root: true
+
 - type: log
   enabled: true
   paths:
     - /logs/medpot/medpot.log
   fields:
     type: medpot
+    service: hl7-fhir
     sensor-name: ${SENSOR_NAME}
   json.keys_under_root: true
+
 - type: log
   enabled: true
   paths:
     - /logs/nginx/access.log
   fields:
     type: nginx
+    service: nginx
   json.keys_under_root: true
+
 - type: log
   enabled: true
   paths:
     - /logs/tanner/tanner_report.json
   fields:
     type: tanner
+    service: http
     sensor-name: ${SENSOR_NAME}
   json.keys_under_root: true
 
