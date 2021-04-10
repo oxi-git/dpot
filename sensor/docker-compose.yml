@@ -18,13 +18,14 @@ networks:
   # honeypy_local:
   # honeysap_local:
   mailoney_local:
-  # medpot_local:
+  medpot_local:
   # rdpy_local:
   # tanner_local:
 
 volumes:
   cowrie_logs:
   mailoney_logs:
+  medpot_logs:
 
 services:
   ##################
