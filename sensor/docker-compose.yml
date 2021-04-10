@@ -174,7 +174,6 @@ services:
     volumes:
       - cowrie_logs:/cowrie/cowrie-git/var/log/cowrie/
     #  - ./logs/cowrie/log/:/cowrie/cowrie-git/var/log/cowrie/
-
     # # Dicompot service
     # # Get the Horos Client for testing: https://horosproject.org/
     # # Get Dicom images (CC BY 3.0): https://www.cancerimagingarchive.net/collections/
@@ -191,7 +190,6 @@ services:
     #     volumes:
     #      - /data/dicompot/log:/var/log/dicompot
     # #     - /data/dicompot/images:/opt/dicompot/images
-
     # # Dionaea service
     #   dionaea:
     #     container_name: dionaea
@@ -228,7 +226,6 @@ services:
     #      - /data/dionaea/binaries:/opt/dionaea/var/dionaea/binaries
     #      - /data/dionaea/log:/opt/dionaea/var/log
     #      - /data/dionaea/rtp:/opt/dionaea/var/dionaea/rtp
-
     # # ElasticPot service
     #   elasticpot:
     #     container_name: elasticpot
@@ -241,7 +238,6 @@ services:
     #     read_only: true
     #     volumes:
     #      - /data/elasticpot/log:/opt/elasticpot/log
-
     # # Heralding service
     #   heralding:
     #     container_name: heralding
@@ -271,7 +267,6 @@ services:
     #     read_only: true
     #     volumes:
     #      - /data/heralding/log:/var/log/heralding
-
     # # HoneyPy service
     #   honeypy:
     #     container_name: honeypy
@@ -290,7 +285,6 @@ services:
     #     read_only: true
     #     volumes:
     #      - /data/honeypy/log:/opt/honeypy/log
-
     # # HoneySAP service
     #   honeysap:
     #     container_name: honeysap
@@ -302,7 +296,6 @@ services:
     #     image: "dtagdevsec/honeysap:2006"
     #     volumes:
     #      - /data/honeysap/log:/opt/honeysap/log
-
     # # Honeytrap service
     #   honeytrap:
     #     container_name: honeytrap
@@ -332,18 +325,18 @@ services:
     volumes:
       - mailoney_logs:/opt/mailoney/logs
 
-  # # Medpot service
-  #   medpot:
-  #     container_name: medpot
-  #     restart: always
-  #     networks:
-  #      - medpot_local
-  #     ports:
-  #      - "2575:2575"
-  #     image: "dtagdevsec/medpot:2006"
-  #     read_only: true
-  #     volumes:
-  #      - /data/medpot/log/:/var/log/medpot
+  # Medpot service
+  medpot:
+    build: ./honeypots/medpot/
+    container_name: medpot
+    restart: always
+    networks:
+      - medpot_local
+    ports:
+      - "2575:2575"
+    read_only: true
+    volumes:
+      - medpot_logs:/var/log/medpot
 
   # # Rdpy service
   #   rdpy:
@@ -503,6 +496,7 @@ services:
 
   filebeat:
     container_name: filebeat
+    restart: always
     build:
       context: filebeat/
       args:
