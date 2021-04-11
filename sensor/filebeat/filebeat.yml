@@ -52,7 +52,7 @@ filebeat.inputs:
     - /logs/heralding/log_auth.csv
   fields:
     type: heralding
-    service: port-filler
+    service: multi
     sensor-name: ${SENSOR_NAME}
 
 - type: log
