@@ -14,7 +14,7 @@ networks:
   # dicompot_local:
   # dionaea_local:
   # elasticpot_local:
-  # heralding_local:
+  heralding_local:
   # honeypy_local:
   # honeysap_local:
   mailoney_local:
@@ -26,6 +26,7 @@ volumes:
   cowrie_logs:
   mailoney_logs:
   medpot_logs:
+  heralding_logs:
 
 services:
   ##################
@@ -174,100 +175,100 @@ services:
     # read_only: true
     volumes:
       - cowrie_logs:/cowrie/cowrie-git/var/log/cowrie/
-    #  - ./logs/cowrie/log/:/cowrie/cowrie-git/var/log/cowrie/
-    # # Dicompot service
-    # # Get the Horos Client for testing: https://horosproject.org/
-    # # Get Dicom images (CC BY 3.0): https://www.cancerimagingarchive.net/collections/
-    # # Put images (which must be in Dicom DCM format or it will not work!) into /data/dicompot/images
-    #   dicompot:
-    #     container_name: dicompot
-    #     restart: always
-    #     networks:
-    #      - dicompot_local
-    #     ports:
-    #      - "11112:11112"
-    #     image: "dtagdevsec/dicompot:2006"
-    #     read_only: true
-    #     volumes:
-    #      - /data/dicompot/log:/var/log/dicompot
-    # #     - /data/dicompot/images:/opt/dicompot/images
-    # # Dionaea service
-    #   dionaea:
-    #     container_name: dionaea
-    #     stdin_open: true
-    #     tty: true
-    #     restart: always
-    #     networks:
-    #      - dionaea_local
-    #     ports:
-    #      - "20:20"
-    #      - "21:21"
-    #      - "42:42"
-    #      - "69:69/udp"
-    #      - "81:81"
-    #      - "135:135"
-    #      # - "443:443"
-    #      - "445:445"
-    #      - "1433:1433"
-    #      - "1723:1723"
-    #      - "1883:1883"
-    #      - "3306:3306"
-    #      - "5060:5060"
-    #      - "5060:5060/udp"
-    #      - "5061:5061"
-    #      - "27017:27017"
-    #     image: "dtagdevsec/dionaea:2006"
-    #     read_only: true
-    #     volumes:
-    #      - /data/dionaea/roots/ftp:/opt/dionaea/var/dionaea/roots/ftp
-    #      - /data/dionaea/roots/tftp:/opt/dionaea/var/dionaea/roots/tftp
-    #      - /data/dionaea/roots/www:/opt/dionaea/var/dionaea/roots/www
-    #      - /data/dionaea/roots/upnp:/opt/dionaea/var/dionaea/roots/upnp
-    #      - /data/dionaea:/opt/dionaea/var/dionaea
-    #      - /data/dionaea/binaries:/opt/dionaea/var/dionaea/binaries
-    #      - /data/dionaea/log:/opt/dionaea/var/log
-    #      - /data/dionaea/rtp:/opt/dionaea/var/dionaea/rtp
-    # # ElasticPot service
-    #   elasticpot:
-    #     container_name: elasticpot
-    #     restart: always
-    #     networks:
-    #      - elasticpot_local
-    #     ports:
-    #      - "9200:9200"
-    #     image: "dtagdevsec/elasticpot:2006"
-    #     read_only: true
-    #     volumes:
-    #      - /data/elasticpot/log:/opt/elasticpot/log
-    # # Heralding service
-    #   heralding:
-    #     container_name: heralding
-    #     restart: always
-    #     tmpfs:
-    #      - /tmp/heralding:uid=2000,gid=2000
-    #     networks:
-    #      - heralding_local
-    #     ports:
-    #     # - "21:21"
-    #     # - "22:22"
-    #     # - "23:23"
-    #     # - "25:25"
-    #     # - "80:80"
-    #      - "110:110"
-    #      - "143:143"
-    #     # - "443:443"
-    #      - "465:465"
-    #      - "993:993"
-    #      - "995:995"
-    #     # - "3306:3306"
-    #     # - "3389:3389"
-    #      - "1080:1080"
-    #      - "5432:5432"
-    #      - "5900:5900"
-    #     image: "dtagdevsec/heralding:2006"
-    #     read_only: true
-    #     volumes:
-    #      - /data/heralding/log:/var/log/heralding
+    
+  # # Dicompot service
+  # # Get the Horos Client for testing: https://horosproject.org/
+  # # Get Dicom images (CC BY 3.0): https://www.cancerimagingarchive.net/collections/
+  # # Put images (which must be in Dicom DCM format or it will not work!) into /data/dicompot/images
+  #   dicompot:
+  #     container_name: dicompot
+  #     restart: always
+  #     networks:
+  #      - dicompot_local
+  #     ports:
+  #      - "11112:11112"
+  #     image: "dtagdevsec/dicompot:2006"
+  #     read_only: true
+  #     volumes:
+  #      - /data/dicompot/log:/var/log/dicompot
+  # #     - /data/dicompot/images:/opt/dicompot/images
+  # # Dionaea service
+  #   dionaea:
+  #     container_name: dionaea
+  #     stdin_open: true
+  #     tty: true
+  #     restart: always
+  #     networks:
+  #      - dionaea_local
+  #     ports:
+  #      - "20:20"
+  #      - "21:21"
+  #      - "42:42"
+  #      - "69:69/udp"
+  #      - "81:81"
+  #      - "135:135"
+  #      # - "443:443"
+  #      - "445:445"
+  #      - "1433:1433"
+  #      - "1723:1723"
+  #      - "1883:1883"
+  #      - "3306:3306"
+  #      - "5060:5060"
+  #      - "5060:5060/udp"
+  #      - "5061:5061"
+  #      - "27017:27017"
+  #     image: "dtagdevsec/dionaea:2006"
+  #     read_only: true
+  #     volumes:
+  #      - /data/dionaea/roots/ftp:/opt/dionaea/var/dionaea/roots/ftp
+  #      - /data/dionaea/roots/tftp:/opt/dionaea/var/dionaea/roots/tftp
+  #      - /data/dionaea/roots/www:/opt/dionaea/var/dionaea/roots/www
+  #      - /data/dionaea/roots/upnp:/opt/dionaea/var/dionaea/roots/upnp
+  #      - /data/dionaea:/opt/dionaea/var/dionaea
+  #      - /data/dionaea/binaries:/opt/dionaea/var/dionaea/binaries
+  #      - /data/dionaea/log:/opt/dionaea/var/log
+  #      - /data/dionaea/rtp:/opt/dionaea/var/dionaea/rtp
+  # # ElasticPot service
+  #   elasticpot:
+  #     container_name: elasticpot
+  #     restart: always
+  #     networks:
+  #      - elasticpot_local
+  #     ports:
+  #      - "9200:9200"
+  #     image: "dtagdevsec/elasticpot:2006"
+  #     read_only: true
+  #     volumes:
+  #      - /data/elasticpot/log:/opt/elasticpot/log
+
+  # Heralding service
+  heralding:
+    container_name: heralding
+    restart: always
+    networks:
+      - heralding_local
+    ports:
+      - "21:21"
+      # - "22:22"
+      # - "23:23"
+      # - "25:25"
+      - "80:80"
+      #  - "110:110"
+      - "143:143"
+      # - "443:443"
+      - "465:465"
+      - "993:993"
+      - "995:995"
+      # - "3306:3306"
+      # - "3389:3389"
+      - "1080:1080"
+      - "5432:5432"
+      - "5900:5900"
+    image: dragas/heralding
+    read_only: true
+    volumes:
+      - heralding_logs:/heralogs
+
     # # HoneyPy service
     #   honeypy:
     #     container_name: honeypy
@@ -326,18 +327,18 @@ services:
     volumes:
       - mailoney_logs:/opt/mailoney/logs
 
-  # Medpot service
-  medpot:
-    build: ./honeypots/medpot/
-    container_name: medpot
-    restart: always
-    networks:
-      - medpot_local
-    ports:
-      - "2575:2575"
-    read_only: true
-    volumes:
-      - medpot_logs:/var/log/medpot
+  # # Medpot service
+  # medpot:
+  #   build: ./honeypots/medpot/
+  #   container_name: medpot
+  #   restart: always
+  #   networks:
+  #     - medpot_local
+  #   ports:
+  #     - "2575:2575"
+  #   # read_only: true
+  #   volumes:
+  #     - medpot_logs:/var/log/medpot
 
   # # Rdpy service
   #   rdpy:
@@ -505,6 +506,8 @@ services:
     volumes:
       - "cowrie_logs:/logs/cowrie/"
       - "mailoney_logs:/logs/mailoney/"
+      - "heralding_logs:/logs/heralding"
+      - "medpot_logs:/logs/medpot/"
       - "./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
       - "/var/lib/docker/containers:/var/lib/docker/containers:ro"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"

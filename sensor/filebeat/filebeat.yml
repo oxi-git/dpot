@@ -49,7 +49,7 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
-    - /logs/heralding/auth.csv
+    - /logs/heralding/log_auth.csv
   fields:
     type: heralding
     service: port-filler
@@ -139,7 +139,7 @@ filebeat.inputs:
     - /logs/medpot/medpot.log
   fields:
     type: medpot
-    service: hl7-fhir
+    service: hl7
     sensor-name: ${SENSOR_NAME}
   json.keys_under_root: true
 

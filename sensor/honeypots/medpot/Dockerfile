@@ -4,14 +4,14 @@ FROM alpine
 
 # Setup apk
 RUN apk -U --no-cache add \
-                   build-base \
-                   git \
-                   go \
-                   g++
+    build-base \
+    git \
+    go \
+    g++
 
 # Setup go, medpot
 RUN    export GOPATH=/opt/go/ && \
-    mkdir /opt && \
+    # mkdir /opt && \
     mkdir /opt/go && \
     cd /opt/go && \
     mkdir ./src && cd src && \
@@ -24,12 +24,14 @@ RUN    export GOPATH=/opt/go/ && \
     go build medpot && \
     cp ./medpot /usr/bin/medpot
 
-RUN cd /opt/go/src/medpot/template && \ mkdir /var/log/medpot && \
+RUN cd /opt/go/src/medpot/template && \ 
+    mkdir /var/log/medpot && \
     cp ./medpot.log  /var/log/medpot/medpot.log && \
     mkdir /data && \
     mkdir /data/medpot && \
     cp ./ews.xml /data/medpot/ && \
-    cp ./dummyerror.xml /data/medpot/
+    cp ./dummyerror.xml /data/medpot/ && \
+    touch /etc/ews.cfg
 
 
 # Setup user, groups and configs
@@ -39,14 +41,16 @@ RUN    addgroup -g 2000 medpot && \
 
 # Clean up
 RUN    apk del --purge build-base \
-                    git \
-                    go \
-                    g++ && \
+    git \
+    go \
+    g++ && \
     rm -rf /var/cache/apk/* \
-           /opt/go \
-           /root/dist
+    /opt/go \
+    /root/dist
 
 # Start medpot
 WORKDIR /opt/go/src/medpot
 USER medpot:medpot
-CMD exec medpot
+VOLUME [ "/var/log/medpot" ]
+ENTRYPOINT [ "medpot" ]
+EXPOSE 2575
