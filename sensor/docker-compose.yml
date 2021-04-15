@@ -28,6 +28,8 @@ volumes:
   medpot_logs:
   heralding_logs:
   dionaea_logs:
+  # rdpy_logs:
+  suricata_logs:
 
 services:
   ##################
@@ -344,25 +346,17 @@ services:
   #     - medpot_logs:/var/log/medpot
 
   # # Rdpy service
-  #   rdpy:
-  #     container_name: rdpy
-  #     extra_hosts:
-  #      - hpfeeds.example.com:127.0.0.1
-  #     restart: always
-  #     environment:
-  #      - HPFEEDS_SERVER=hpfeeds.example.com
-  #      - HPFEEDS_IDENT=user
-  #      - HPFEEDS_SECRET=pass
-  #      - HPFEEDS_PORT=65000
-  #      - SERVERID=id
-  #     networks:
-  #      - rdpy_local
-  #     ports:
-  #      - "3389:3389"
-  #     image: "dtagdevsec/rdpy:2006"
-  #     read_only: true
-  #     volumes:
-  #      - /data/rdpy/log:/var/log/rdpy
+  # rdpy:
+  #   container_name: rdpy
+  #   build: ./honeypots/rdpy/
+  #   restart: always
+  #   networks:
+  #     - rdpy_local
+  #   ports:
+  #     - "3389:3389"
+  #   read_only: false
+  #   volumes:
+  #     - rdpy_logs:/var/log/rdpy
 
   # #### Snare / Tanner
   # ## Tanner Redis Service
@@ -479,21 +473,21 @@ services:
   #     volumes:
   #      - /data/p0f/log:/var/log/p0f
 
-  # # Suricata service
-  #   suricata:
-  #     container_name: suricata
-  #     restart: always
-  #     environment:
-  #     # For ET Pro ruleset replace "OPEN" with your OINKCODE
-  #      - OINKCODE=OPEN
-  #     network_mode: "host"
-  #     cap_add:
-  #      - NET_ADMIN
-  #      - SYS_NICE
-  #      - NET_RAW
-  #     image: "dtagdevsec/suricata:2006"
-  #     volumes:
-  #      - /data/suricata/log:/var/log/suricata
+  # Suricata service
+  suricata:
+    container_name: suricata
+    restart: always
+    environment:
+    # For ET Pro ruleset replace "OPEN" with your OINKCODE
+      - OINKCODE=OPEN
+    network_mode: "host"
+    cap_add:
+      - NET_ADMIN
+      - SYS_NICE
+      - NET_RAW
+    image: "dtagdevsec/suricata:2006"
+    volumes:
+      - suricata_logs:/var/log/suricata
 
   ##################
   #### Filebeat
@@ -511,6 +505,9 @@ services:
       - "mailoney_logs:/logs/mailoney/"
       - "heralding_logs:/logs/heralding"
       - "medpot_logs:/logs/medpot/"
+      - "dionaea_logs:/logs/dionaea/"
+      # - "rdpy_logs:/logs/rdpy/"
+      - "suricata_logs:/logs/suricata/"
       - "./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
       - "/var/lib/docker/containers:/var/lib/docker/containers:ro"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"

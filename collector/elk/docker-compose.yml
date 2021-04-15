@@ -31,6 +31,7 @@ services:
       context: logstash/
       args:
         ELK_VERSION: $ELK_VERSION
+    restart: always
     volumes:
       - type: bind
         source: ./logstash/config/logstash.yml
