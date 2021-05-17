@@ -1,1 +1,2 @@
-# d-pot
+# d-pot 🍯
+> A centralized, distributed honeypot system
