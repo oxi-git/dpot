@@ -13,7 +13,7 @@ networks:
   cowrie_local:
   # dicompot_local:
   dionaea_local:
-  # elasticpot_local:
+  elasticpot_local:
   heralding_local:
   # honeypy_local:
   # honeysap_local:
@@ -29,6 +29,7 @@ volumes:
   heralding_logs:
   dionaea_logs:
   # rdpy_logs:
+  elasticpot_logs:
   suricata_logs:
 
 services:
@@ -233,18 +234,19 @@ services:
       - ./honeypots/dionaea/rtp:/opt/dionaea/var/dionaea/rtp
       - dionaea_logs:/opt/dionaea/var/log
   
-  # # ElasticPot service
-  #   elasticpot:
-  #     container_name: elasticpot
-  #     restart: always
-  #     networks:
-  #      - elasticpot_local
-  #     ports:
-  #      - "9200:9200"
-  #     image: "dtagdevsec/elasticpot:2006"
-  #     read_only: true
-  #     volumes:
-  #      - /data/elasticpot/log:/opt/elasticpot/log
+# ElasticPot service
+  elasticpot:
+    build: ./honeypots/elasticpot
+    container_name: elasticpot
+    restart: always
+    networks:
+      - elasticpot_local
+    ports:
+      - "9201:9200"
+    # image: "dtagdevsec/elasticpot:2006"
+    read_only: true
+    volumes:
+      - elasticpot_logs:/opt/elasticpot/log/
 
   # Heralding service
   heralding:
@@ -450,19 +452,6 @@ services:
   #### NSM
   ##################
 
-  # # Fatt service
-  #   fatt:
-  #     container_name: fatt
-  #     restart: always
-  #     network_mode: "host"
-  #     cap_add:
-  #      - NET_ADMIN
-  #      - SYS_NICE
-  #      - NET_RAW
-  #     image: "dtagdevsec/fatt:2006"
-  #     volumes:
-  #      - /data/fatt/log:/opt/fatt/log
-
   # # P0f service
   #   p0f:
   #     container_name: p0f
@@ -506,6 +495,7 @@ services:
       - "heralding_logs:/logs/heralding"
       - "medpot_logs:/logs/medpot/"
       - "dionaea_logs:/logs/dionaea/"
+      - "elasticpot_logs:/logs/elasticpot/"
       # - "rdpy_logs:/logs/rdpy/"
       - "suricata_logs:/logs/suricata/"
       - "./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"

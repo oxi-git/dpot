@@ -14,9 +14,9 @@ services:
       - type: volume
         source: elasticsearch
         target: /usr/share/elasticsearch/data
-    ports:
-      - "9200:9200"
-      - "9300:9300"
+    # ports:
+      # - "9200:9200"
+      # - "9300:9300"
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
       ELASTIC_PASSWORD: changeme
@@ -25,6 +25,24 @@ services:
       discovery.type: single-node
     networks:
       - elk
+
+  curator:
+    build:
+      context: extensions/curator/
+    # init: true
+    volumes:
+      - type: bind
+        source: ./extensions/curator/config/curator.yml
+        target: /usr/share/curator/config/curator.yml
+        read_only: true
+      - type: bind
+        source: ./extensions/curator/config/delete_log_files_curator.yml
+        target: /usr/share/curator/config/delete_log_files_curator.yml
+        read_only: true
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
 
   logstash:
     build:
