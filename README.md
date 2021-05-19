@@ -1,2 +1,2 @@
 # d-pot 🍯
-> A centralized, distributed honeypot system
+> A centralized but distributed honeypot system based on the ELK Stack
