@@ -6,6 +6,7 @@ services:
       context: elasticsearch/
       args:
         ELK_VERSION: $ELK_VERSION
+    restart: always
     volumes:
       - type: bind
         source: ./elasticsearch/config/elasticsearch.yml
@@ -14,7 +15,7 @@ services:
       - type: volume
         source: elasticsearch
         target: /usr/share/elasticsearch/data
-    # ports:
+    # ports: # Enable if you want to expose your Elasticsearch DB
       # - "9200:9200"
       # - "9300:9300"
     environment:
@@ -29,7 +30,6 @@ services:
   curator:
     build:
       context: extensions/curator/
-    # init: true
     volumes:
       - type: bind
         source: ./extensions/curator/config/curator.yml
