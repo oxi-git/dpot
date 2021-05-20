@@ -2,6 +2,12 @@ FROM bitnami/elasticsearch-curator:5.8.1
 
 USER root
 
+ENV TZ=Europe/Berlin
+
+RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && \
+     echo $TZ > /etc/timezone && \
+     dpkg-reconfigure -f noninteractive tzdata
+
 RUN install_packages cron && \
     echo \
         '* * * * *' \
