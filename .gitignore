@@ -1,0 +1,2 @@
+collector/elk/logstash/ssl/*.key
+collector/elk/logstash/ssl/*.crt

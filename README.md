@@ -11,7 +11,14 @@ Based on the T-Pot Honeypot framework, this projects makes it easy to deploy and
 
 ## Collector
 
-todo
+### Components:
+- ELK Stack
+- Elastic Curator
+
+### Installation
+
+1)
+
 ## Sensor
 
 todo
