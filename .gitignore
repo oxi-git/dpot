@@ -1,2 +1,3 @@
 collector/elk/logstash/ssl/*.key
 collector/elk/logstash/ssl/*.crt
+collector/elk/logstash/ssl/out/*

@@ -12,14 +12,29 @@ Based on the T-Pot Honeypot framework, this projects makes it easy to deploy and
 ## Collector
 
 ### Components:
+
 - ELK Stack
 - Elastic Curator
 
 ### Installation
 
-1)
+1) Set your username and password in `.env` file
+2) Generate certificates for Logstash and sensors Filebeat with `generate.sh`
+3) `$ docker-compose up -d`
 
 ## Sensor
 
-todo
+### Components:
+
+- Filebeat
+- Cowrie
+- Mailhoney
+- ElasticPot
+- Dionaea / Heralding
+- Suricata
+
+### Installation:
+
+1)
+
 ---
