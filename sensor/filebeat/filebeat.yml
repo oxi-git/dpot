@@ -170,3 +170,4 @@ output.logstash:
   ssl.certificate: "/etc/filebeat/certs/filebeat.crt"
   ssl.key: "/etc/filebeat/certs/filebeat.key"
   ssl.verification_mode: none
+  ssl.supported_protocols: [TLSv1.2, TLSv1.3]
