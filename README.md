@@ -1,4 +1,4 @@
-# dpot 🍯
+# dpot
 > A centralized but distributed honeypot system inspired by `telekom-security/tpotce`
 
 ## Introduction
@@ -9,7 +9,7 @@ Based on the T-Pot Honeypot framework, this projects makes it easy to deploy and
 
 <img src="doc/assets/dpot_infrastructure.png" style="display: block; margin-left: auto; margin-right: auto; width: 70%"/>
 
-## Collector
+## Collector 🍯
 
 ### Components:
 
@@ -22,7 +22,7 @@ Based on the T-Pot Honeypot framework, this projects makes it easy to deploy and
 2) Generate certificates for Logstash and Filebeat (sensors) with `generate.sh`
 3) `$ docker-compose up -d`
 
-## Sensor
+## Sensor 🐝
 
 ### Components:
 
