@@ -197,42 +197,42 @@ services:
   #      - /data/dicompot/log:/var/log/dicompot
   # #     - /data/dicompot/images:/opt/dicompot/images
 
-# Dionaea service
-  dionaea:
-    build: ./honeypots/dionaea/
-    container_name: dionaea
-    stdin_open: true
-    tty: true
-    restart: always
-    networks:
-      - dionaea_local
-    ports:
-      - "20:20"
-      - "21:21"
-      - "42:42"
-      - "69:69/udp"
-      - "80:81"
-      - "135:135"
-      - "443:443"
-      - "445:445"
-      - "1433:1433"
-      - "1723:1723"
-      - "1883:1883"
-      - "3306:3306"
-      - "5060:5060"
-      - "5060:5060/udp"
-      - "5061:5061"
-      - "27017:27017"
-    # read_only: true
-    volumes:
-      - ./honeypots/dionaea/roots/ftp:/opt/dionaea/var/dionaea/roots/ftp
-      - ./honeypots/dionaea/roots/tftp:/opt/dionaea/var/dionaea/roots/tftp
-      - ./honeypots/dionaea/roots/www:/opt/dionaea/var/dionaea/roots/www
-      - ./honeypots/dionaea/roots/upnp:/opt/dionaea/var/dionaea/roots/upnp
-      # - ./honeypots/dionaea:/opt/dionaea/var/dionaea
-      # - ./honeypots/dionaea/binaries:/opt/dionaea/var/dionaea/binaries
-      - ./honeypots/dionaea/rtp:/opt/dionaea/var/dionaea/rtp
-      - dionaea_logs:/opt/dionaea/var/log
+# # Dionaea service
+#   dionaea:
+#     build: ./honeypots/dionaea/
+#     container_name: dionaea
+#     stdin_open: true
+#     tty: true
+#     restart: always
+#     networks:
+#       - dionaea_local
+#     ports:
+#       - "20:20"
+#       - "21:21"
+#       - "42:42"
+#       - "69:69/udp"
+#       - "80:81"
+#       - "135:135"
+#       - "443:443"
+#       - "445:445"
+#       - "1433:1433"
+#       - "1723:1723"
+#       - "1883:1883"
+#       - "3306:3306"
+#       - "5060:5060"
+#       - "5060:5060/udp"
+#       - "5061:5061"
+#       - "27017:27017"
+#     # read_only: true
+#     volumes:
+#       - ./honeypots/dionaea/roots/ftp:/opt/dionaea/var/dionaea/roots/ftp
+#       - ./honeypots/dionaea/roots/tftp:/opt/dionaea/var/dionaea/roots/tftp
+#       - ./honeypots/dionaea/roots/www:/opt/dionaea/var/dionaea/roots/www
+#       - ./honeypots/dionaea/roots/upnp:/opt/dionaea/var/dionaea/roots/upnp
+#       # - ./honeypots/dionaea:/opt/dionaea/var/dionaea
+#       # - ./honeypots/dionaea/binaries:/opt/dionaea/var/dionaea/binaries
+#       - ./honeypots/dionaea/rtp:/opt/dionaea/var/dionaea/rtp
+#       - dionaea_logs:/opt/dionaea/var/log
   
 # ElasticPot service
   elasticpot:
@@ -250,6 +250,7 @@ services:
 
   # Heralding service
   heralding:
+    build: ./honeypots/heralding
     container_name: heralding
     restart: always
     networks:
@@ -266,15 +267,15 @@ services:
       - "465:465"
       - "993:993"
       - "995:995"
-      # - "3306:3306"
-      # - "3389:3389"
+      - "3306:3306"
+      - "3389:3389"
       - "1080:1080"
       - "5432:5432"
       - "5900:5900"
-    image: dragas/heralding
-    read_only: true
+    # image: dragas/heralding
+    read_only: false
     volumes:
-      - heralding_logs:/heralogs
+      - "heralding_logs:/var/log/heralding"
 
     # # HoneyPy service
     #   honeypy:
@@ -492,10 +493,10 @@ services:
     volumes:
       - "cowrie_logs:/logs/cowrie/"
       - "mailoney_logs:/logs/mailoney/"
-      - "heralding_logs:/logs/heralding"
       - "medpot_logs:/logs/medpot/"
       - "dionaea_logs:/logs/dionaea/"
       - "elasticpot_logs:/logs/elasticpot/"
+      - "heralding_logs:/logs/heralding/"
       # - "rdpy_logs:/logs/rdpy/"
       - "suricata_logs:/logs/suricata/"
       - "./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"

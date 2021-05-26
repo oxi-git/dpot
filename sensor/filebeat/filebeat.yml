@@ -49,10 +49,19 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
-    - /logs/heralding/log_auth.csv
+    - /logs/heralding/session.csv
   fields:
     type: heralding
-    service: multi
+    service: session
+    sensor-name: ${SENSOR_NAME}
+
+- type: log
+  enabled: true
+  paths:
+    - /logs/heralding/auth.csv
+  fields:
+    type: heralding
+    service: credentials
     sensor-name: ${SENSOR_NAME}
 
 - type: log
