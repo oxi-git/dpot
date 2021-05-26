@@ -4,4 +4,5 @@ collector/elk/logstash/ssl/out/*
 
 sensor/filebeat/ssl/*.key
 sensor/filebeat/ssl/*.crt
+sensor/filebeat/ssl/serial
 sensor/filebeat/ssl/out/*

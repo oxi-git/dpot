@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if [ ! -f ca.crt || ! -f ca.key || ! -f serial]; then
+if [ ! -f ca.crt ] || [ ! -f ca.key ] || [ ! -f serial ]; then
     echo "Error: no CA files found."
     echo "Generate and copy CA Certificate, Key and Serial files from your collector config before running this script"
-    return
+    exit 1
 fi
 sudo apt install openssl
 
