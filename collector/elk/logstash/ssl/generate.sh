@@ -20,5 +20,5 @@ openssl x509 -days 3650 -req -sha512 -in logstash.csr -CAserial serial -CA ca.cr
 mv logstash.key logstash.key.pem && openssl pkcs8 -in logstash.key.pem -topk8 -nocrypt -out logstash.key
 
 #Move to out folder and cleanup
-mv ca.crt logstash.crt logstash.key ./out/
-rm -rf ca.key logstash.csr logstash.key.pem serial
+mv serial ca.key ca.crt logstash.crt logstash.key ./out/
+rm -rf logstash.csr logstash.key.pem

@@ -1,3 +1,7 @@
 collector/elk/logstash/ssl/*.key
 collector/elk/logstash/ssl/*.crt
 collector/elk/logstash/ssl/out/*
+
+sensor/filebeat/ssl/*.key
+sensor/filebeat/ssl/*.crt
+sensor/filebeat/ssl/out/*

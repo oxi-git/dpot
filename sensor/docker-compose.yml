@@ -499,6 +499,9 @@ services:
       # - "rdpy_logs:/logs/rdpy/"
       - "suricata_logs:/logs/suricata/"
       - "./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
+      - "./filebeat/ssl/out/ca.crt:/etc/filebeat/certs/ca.crt:ro"
+      - "./filebeat/ssl/out/filebeat.crt:/etc/filebeat/certs/filebeat.crt:ro"
+      - "./filebeat/ssl/out/filebeat.key:/etc/filebeat/certs/filebeat.key:ro"
       - "/var/lib/docker/containers:/var/lib/docker/containers:ro"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
     environment:

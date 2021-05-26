@@ -165,5 +165,8 @@ filebeat.inputs:
 output.logstash:
   enabled: true
   hosts: ${D-POT_COLLECTOR}
-  ssl.enabled: false
+  ssl.enabled: true
+  ssl.certificate_authorities: ["/etc/filebeat/certs/ca.crt"]
+  ssl.certificate: "/etc/filebeat/certs/filebeat.crt"
+  ssl.key: "/etc/filebeat/certs/filebeat.key"
   ssl.verification_mode: none

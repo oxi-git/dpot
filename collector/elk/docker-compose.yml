@@ -59,6 +59,18 @@ services:
         source: ./logstash/pipeline
         target: /usr/share/logstash/pipeline
         read_only: true
+      - type: bind
+        source: ./logstash/ssl/out/ca.crt
+        target: /etc/ca.crt
+        read_only: true
+      - type: bind
+        source: ./logstash/ssl/out/logstash.crt
+        target: /etc/logstash.crt
+        read_only: true
+      - type: bind
+        source: ./logstash/ssl/out/logstash.key
+        target: /etc/logstash.key
+        read_only: true
     ports:
       - "5044:5044"
       # - "5000:5000/tcp"
