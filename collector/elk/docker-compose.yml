@@ -117,7 +117,7 @@ services:
     restart: always
     volumes:
         - ./nginx/reverse_proxy.conf:/etc/nginx/conf.d/default.conf:ro
-        - ./nginx/cert.cert:/etc/ssl/cert.cert:ro
+        - ./nginx/cert.crt:/etc/ssl/cert.crt:ro
         - ./nginx/cert.key:/etc/ssl/cert.key:ro
     networks: 
       - elk
