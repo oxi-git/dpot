@@ -23,12 +23,11 @@ Based on the T-Pot Honeypot framework, this projects makes it easy to deploy and
 ### Installation
 
 1) Set your password in `.env` file (you MUST keep the `elastic` username)
-2) Generate certificates for Logstash and Filebeat (sensors) with `generate.sh`
-3) `$ docker-compose up -d`
+2) Generate certificates for Logstash and Filebeat (sensors) with `logstash/ssl/generate.sh`
+3) Generate certificates for NGINX with `nginx/generate.sh`
+4) `$ docker-compose up -d`
 
 ---
-
-<br>
 
 ## Sensor 🐝
 
