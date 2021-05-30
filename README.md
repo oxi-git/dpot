@@ -11,8 +11,6 @@ Based on the T-Pot Honeypot framework, this projects makes it easy to deploy and
 
 ---
 
-<br>
-
 ## Collector 🍯
 
 ### Components:
